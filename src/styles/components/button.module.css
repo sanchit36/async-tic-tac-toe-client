@@ -1,0 +1,21 @@
+.btn {
+  border: 0;
+  height: 56px;
+  width: 100%;
+
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+
+  background: #f2c94c;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+}
+
+.btn.btnBlue {
+  background: #2f80ed;
+}
+.btn.btnSmall {
+  height: 40px;
+}

@@ -1,0 +1,28 @@
+.card {
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 25px;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+.card-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+.card-date {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 1rem;
+  color: #3f3f3f;
+}
