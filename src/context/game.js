@@ -13,6 +13,7 @@ export const GameProvider = ({ children }) => {
   const { isSocketConnected, socket } = useSocket();
 
   const listGames = useCallback(({ games }) => {
+    console.log(games);
     setGameState(games);
   }, []);
 

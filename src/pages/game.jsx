@@ -28,7 +28,7 @@ const Game = () => {
     return <div>Loading...</div>;
   }
 
-  const opponent = game.players.filter((p) => p._id !== user._id)[0];
+  const opponent = game.players.filter((p) => p._id !== user._id)?.[0];
 
   let alert = {
     text: "",
@@ -65,7 +65,7 @@ const Game = () => {
 
   return (
     <>
-      <h1 className={styles["title"]}>Game With {opponent.name}</h1>
+      <h1 className={styles["title"]}>Game With {opponent?.name}</h1>
       <p className={styles["subtitle"]}>Your piece</p>
       <div className="mb-8">
         <XSmallIcon />
