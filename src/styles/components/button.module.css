@@ -19,3 +19,9 @@
 .btn.btnSmall {
   height: 40px;
 }
+
+.btn.btnDisabled {
+  cursor: not-allowed;
+  background-color: #b9b9b9;
+  color: black;
+}

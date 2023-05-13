@@ -58,10 +58,43 @@ const Login = () => {
           id="password"
           placeholder="Type your password here"
         />
-        <Button type="submit" disabled={mutation.isLoading}>
+        <Button type="submit" disabled={mutation.isLoading} className="mb-16">
           Login
         </Button>
       </form>
+
+      <div>
+        <Button
+          type="submit"
+          size="small"
+          color="blue"
+          disabled={mutation.isLoading}
+          className="mb-16"
+          onClick={() => {
+            mutation.mutate({
+              username: process.env.REACT_APP_USER1_USERNAME,
+              password: process.env.REACT_APP_USER1_PASSWORD,
+            });
+          }}
+        >
+          Login as User1
+        </Button>
+        <Button
+          type="submit"
+          size="small"
+          color="blue"
+          disabled={mutation.isLoading}
+          className="mb-16"
+          onClick={() => {
+            mutation.mutate({
+              username: process.env.REACT_APP_USER2_USERNAME,
+              password: process.env.REACT_APP_USER2_PASSWORD,
+            });
+          }}
+        >
+          Login as User2
+        </Button>
+      </div>
     </>
   );
 };

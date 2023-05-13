@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import { useSocket } from '../context/socket';
 import styles from '../styles/pages/auth.module.css';
+import { useSnackbar } from '../context/snackbar';
 
 const createGame = (data) => {
   return axios.post(
@@ -23,13 +24,25 @@ const createGame = (data) => {
 
 const CreateGame = () => {
   const token = localStorage.getItem('token');
+  const snackbarCtx = useSnackbar();
   const { socket } = useSocket();
   const navigate = useNavigate();
   const mutation = useMutation(createGame, {
     onSuccess: ({ data }) => {
-      socket.emit('createGame', { opponent: data.user._id }, (game) => {
-        navigate(`/games/${game._id}`);
-      });
+      socket.emit(
+        'createGame',
+        { opponent: data.user._id },
+        ({ game, error }) => {
+          if (error) {
+            snackbarCtx.displayMsg(error, 'red');
+          } else {
+            navigate(`/games/${game._id}`);
+          }
+        }
+      );
+    },
+    onError: () => {
+      snackbarCtx.displayMsg('User not found! Please try again.', 'red');
     },
   });
 
