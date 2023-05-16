@@ -6,6 +6,9 @@ const Alert = ({ text, color = "yellow" }) => {
     <div className={styles["alert"] + " " + styles["alert-" + color]}>
       {text}
     </div>
+    <div className={styles["alert"] + " " + styles["alert-" + color]}>
+      {text}
+     </div>
   );
 };
 

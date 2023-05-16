@@ -7,9 +7,25 @@ const Button = ({
   size = 'large',
   className,
   disabled,
+  children,
+  color = 'yellow',
+  size = 'large',
+  className,
+  disabled,
   ...props
 }) => {
   return (
+    <button
+      className={`${styles['btn']}
+      ${color === 'blue' ? styles['btnBlue'] : ''}
+      ${size === 'small' ? styles['btnSmall'] : ''}
+      ${disabled === true ? styles['btnDisabled'] : ''}
+      ${className}`}
+      disabled={disabled}
+      {...props}
+    >
+      {children}
+    </button>
     <button
       className={`${styles['btn']}
       ${color === 'blue' ? styles['btnBlue'] : ''}
