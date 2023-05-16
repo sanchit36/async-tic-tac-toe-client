@@ -6,7 +6,7 @@ on:
   push:
   # and the target with some regex to match our specific  branch names
     branches:
-      - master
+      - dev-master
       
 # We can now build our job
 jobs:
@@ -23,7 +23,7 @@ jobs:
 
       # Another existing action, this one to checkout the repository
       - name: 'Checkout repository on branch: ${{ github.REF }}'
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
         with:
           ref: ${{ github.REF }}
           fetch-depth: 0
@@ -35,7 +35,7 @@ jobs:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: sonar-scanner
-          -Dsonar.host.url=${{ secrets.SONAR_URL }}
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
           -Dsonar.branch.name=${GITHUB_REF:11}
