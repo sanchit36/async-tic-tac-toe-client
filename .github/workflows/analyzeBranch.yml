@@ -17,13 +17,15 @@ jobs:
     steps:
       
       - name: 'Checkout repository on branch: ${{ github.REF }}'
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.REF }}
           fetch-depth: 0
       
       - name: Setup sonarqube
-        uses: warchant/setup-sonar-scanner@v3
+        uses: warchant/setup-sonar-scanner@v1
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
       # Conditional execution can be done, in this case the parameter to use with sonar scanner are different if we are analyzing master or a branch
       - if: endsWith(github.REF, '/master') != true
