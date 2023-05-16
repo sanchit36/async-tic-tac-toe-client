@@ -6,7 +6,7 @@ on:
   push:
   # and the target with some regex to match our specific  branch names
     branches:
-      - master
+      - dev-master
       
 # We can now build our job
 jobs:
@@ -17,13 +17,13 @@ jobs:
     steps:
       # Use an existing action, you can look in the market place to find what you need and how to use it, to setup the sonar scanner
       - name: Setup sonar scanner
-        uses: warchant/setup-sonar-scanner@v1
+        uses: warchant/setup-sonar-scanner@v3
         env:
          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
       # Another existing action, this one to checkout the repository
       - name: 'Checkout repository on branch: ${{ github.REF }}'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.REF }}
           fetch-depth: 0
